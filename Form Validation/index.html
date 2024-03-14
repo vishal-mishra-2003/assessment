@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: lightskyblue;
+        }
+
+        form {
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+        }
+
+        input,
+        select {
+            width: 169px;
+        }
+
+        ul {
+            margin-left: 20px;
+        }
+
+        div input {
+            width: 13px;
+        }
+
+        .phone {
+            width: 15px;
+        }
+
+        button {
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="./redirect.html">
+        <label for="firstName">First Name</label>
+        <input class="name" type="text" id="firstName"><span></span><br>
+        <label for="middleName">Middle Name</label>
+        <input class="name" type="text" id="middleName"><span></span><br>
+        <label for="lastName">Last Name</label>
+        <input class="name" type="text" id="lastName"><span></span><br>
+        <label for="course">Course</label>
+        <select name="" id="course">
+            <option value="">Course</option>
+            <option value="">BCA</option>
+            <option value="">BTECH</option>
+            <option value="">MBA</option>
+        </select><br>
+        <label for="gender">Gender</label><br>
+        <div>
+            <input type="radio" name="gender" id="">
+            <label for="male">Male</label>
+            <input type="radio" name="gender" id="">
+            <label for="female">Female</label>
+            <input type="radio" name="gender" id="">
+            <label for="male">Others</label>
+        </div><br>
+        <label for="">Phone</label>
+        <select name="" id="phone">
+            <option class="phone" value="">+91</option>
+            <option class="phone" value="">+112</option>
+            <option class="phone" value="">+113</option>
+            <option class="phone" value="">+69</option>
+            <input type="number" class="phn"><span class="sp"></span>
+        </select><br>
+        <label for="address">Address</label>
+        <textarea name="" id="address" cols="30" rows="10"></textarea>
+        <label for="mail">Email</label>
+        <input type="email" id="mail"><br>
+        <label for="pass">Password</label>
+        <input type="text" id="pass" class="pass"><br>
+        <label for="cpass">Confirm Password</label>
+        <input type="text" id="cpass" class="pass"><span class="ps"></span><br>
+        <button>Submit</button>
+    </form>
+    <script>
+        let name = document.querySelectorAll('.name')
+        let spans = document.querySelectorAll('span')
+        let nameBoxes = Array.from(name)
+        let spanBoxes = Array.from(spans)
+        let btn = document.querySelector("button");
+        for (let i = 0; i < nameBoxes.length; i++) {
+            nameBoxes[i].addEventListener('input', () => {
+                let len = nameBoxes[i].value.length;
+                if (len <= 3) {
+                    spanBoxes[i].innerHTML = "**not null"
+                    btn.disabled = true;
+                } else {
+                    spanBoxes[i].innerHTML = ""
+                    btn.disabled = false;
+                }
+            })
+
+        }
+        let phn = document.querySelector('.phn');
+        phn.addEventListener('input', () => {
+            let len = phn.value.length;
+            if (len <= 9) {
+                document.querySelector('.sp').innerHTML = "not more or less then 10 digits"
+                btn.disabled = true;
+            } else if (len > 10) {
+                document.querySelector('.sp').innerHTML = "not more or less then 10 digits"
+                btn.disabled = true;
+            } else {
+                document.querySelector('.sp').innerHTML = ""
+                btn.disabled = false;
+            }
+        })
+        let pass = document.querySelectorAll(".pass")
+        let passBoxes = Array.from(pass)
+
+        passBoxes[1].addEventListener('input', () => {
+            let pass1 = passBoxes[0].value;
+            let pass2 = passBoxes[1].value;
+
+            if(pass2 != pass1){
+                document.querySelector('.ps').innerHTML = "password should be same"
+                btn.disabled = true;
+            }else {
+                document.querySelector('.ps').innerHTML = ""
+                btn.disabled = fals
+                
+                e;
+            }
+        })
+    </script>
+</body>
+
+</html>
